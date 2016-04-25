@@ -4,17 +4,36 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/3 | 易易妹的博客</title>
+  <title>易易妹的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta name="description" content="第一次前端笔试题总结——太平洋网络科技有限公司
+1.正则清除空白
+var str = &amp;apos;      fahkfakdflkafldka                &amp;apos;;
+
+str = str.replace(/(^\s*)|(\s*$)/g,&amp;apos;&amp;apos;);//fahkfakdflkafldka
+2.http200，302,404,503 是什么意思？
+200-&amp;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="易易妹的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/03/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/04/26/第一次前端面试总结——太平洋网络科技有限公司/index.html">
 <meta property="og:site_name" content="易易妹的博客">
-<meta property="og:description">
+<meta property="og:description" content="第一次前端笔试题总结——太平洋网络科技有限公司
+1.正则清除空白
+var str = &amp;apos;      fahkfakdflkafldka                &amp;apos;;
+
+str = str.replace(/(^\s*)|(\s*$)/g,&amp;apos;&amp;apos;);//fahkfakdflkafldka
+2.http200，302,404,503 是什么意思？
+200-&amp;">
+<meta property="og:updated_time" content="2016-04-24T14:19:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="易易妹的博客">
-<meta name="twitter:description">
+<meta name="twitter:description" content="第一次前端笔试题总结——太平洋网络科技有限公司
+1.正则清除空白
+var str = &amp;apos;      fahkfakdflkafldka                &amp;apos;;
+
+str = str.replace(/(^\s*)|(\s*$)/g,&amp;apos;&amp;apos;);//fahkfakdflkafldka
+2.http200，302,404,503 是什么意思？
+200-&amp;">
   
     <link rel="alternative" href="/atom.xml" title="易易妹的博客" type="application/atom+xml">
   
@@ -196,43 +215,136 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-第一次前端面试总结——太平洋网络科技有限公司" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/15/我的第一篇博文/" class="archive-article-date">
-  	<time datetime="2016-03-15T15:27:10.640Z" itemprop="datePublished">Mar 15</time>
+    <div class="article-meta">
+      <a href="/2016/04/26/第一次前端面试总结——太平洋网络科技有限公司/" class="article-date">
+  	<time datetime="2016-04-25T16:10:16.970Z" itemprop="datePublished">2016-04-26</time>
 </a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    </div>
   
-  
-    </div></section>
-  
-
+  <div class="article-inner">
     
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一次前端笔试题总结——太平洋网络科技有限公司</p>
+<p>1.正则清除空白</p>
+<pre><code>var str = &apos;      fahkfakdflkafldka                &apos;;
+
+str = str.replace(/(^\s*)|(\s*$)/g,&apos;&apos;);//fahkfakdflkafldka
+</code></pre><p>2.http200，302,404,503 是什么意思？</p>
+<pre><code>200-&gt;成功
+
+302-&gt;临时移动
+
+404-&gt;页面找不到
+
+503-&gt;服务器不可用
+</code></pre><p>3.‘XX省xx市’如果获取分别获取省市，例如广东省广州市，如何获取广东和广州?</p>
+<pre><code>var str = &apos;XX省xx市&apos;;
+var provinceIndex = str.indexOf(&apos;省&apos;);
+var cityIndex = str.indexOf(&apos;市&apos;)
+var province = str.slice(0,provinceIndex);
+var city = str.slice(provinceIndex+1,cityIndex);
+console.log(province+&apos;-&apos;+city);
+</code></pre><p>4.如何获取333和苏州？</p>
+<pre><code>var link = [
+  {111:[&apos;广东&apos;,&apos;广州&apos;]},
+  {222:[&apos;江苏&apos;,&apos;苏州&apos;]},
+  {333:[&apos;广西&apos;,&apos;柳州&apos;]},
+  {333:[&apos;四川&apos;,&apos;成都&apos;]},
+  {444:[&apos;福建&apos;,&apos;厦门&apos;]},
+];
+方法1：
+getContent = (function(){
+    for (var i = 0;i&lt;link.length;i++){
+        for(var key in link[i]){
+            if (key == 333) {
+                console.log(key);
+                }
+            for (var j = 0;j&lt;link[i][key].length;j++){
+                if (link[i][key][j] == &apos;苏州&apos;) { 
+                    console.log(link[i][key][j]);
+                }
+            }    
+        }
+    }
+})();//苏州 333 333
+方法2：
+link.map(function(item){
+for(var key in item){
+    if (key == 333) {
+            console.log(key)
+        }
+        item[key].map(function(item2){
+        if (item2 == &apos;苏州&apos;) {
+            console.log(item2);
+        }
+    })
+}//苏州 333 333
+</code></pre><p>})</p>
+<p>5.数组去重</p>
+<pre><code>Array.prototype.noRepeat = function(){
+var arr = [];
+var obj = {};
+for(var i = 0;i&lt;this.length;i++){
+    if (!obj[this[i]]) {
+        arr.push(this[i]);
+        obj[this[i]]= this[i];
+    }
+}
+return arr;
+}
+myarr = [1,2,4,1,5,6,1,7,8,9]
+myarr.noRepeat();//[1, 2, 4, 5, 6, 7, 8, 9]
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/26/JS原型的理解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 </div>
       <footer id="footer">
@@ -258,8 +370,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

@@ -4,17 +4,43 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/3 | 易易妹的博客</title>
+  <title>易易妹的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta name="description" content="理解原型分享一下学习了一天的对象原型的结果，我们来用下面这个小例子来展开：
+function Person(sname,age){
+    this.sname = sname;
+    this.age = age;
+}
+
+var lilei = new Person(&amp;apos;lilei&amp;apos;,12);
+var hmm = new Person(&amp;apos;hanmeimei&amp;apos">
+<meta property="og:type" content="article">
 <meta property="og:title" content="易易妹的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/03/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/04/26/JS原型的理解/index.html">
 <meta property="og:site_name" content="易易妹的博客">
-<meta property="og:description">
+<meta property="og:description" content="理解原型分享一下学习了一天的对象原型的结果，我们来用下面这个小例子来展开：
+function Person(sname,age){
+    this.sname = sname;
+    this.age = age;
+}
+
+var lilei = new Person(&amp;apos;lilei&amp;apos;,12);
+var hmm = new Person(&amp;apos;hanmeimei&amp;apos">
+<meta property="og:image" content="http://7xtcml.com2.z0.glb.clouddn.com/%E5%8E%9F%E5%9E%8B2.png">
+<meta property="og:image" content="http://7xtcml.com2.z0.glb.clouddn.com/%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3.png">
+<meta property="og:image" content="http://7xtcml.com2.z0.glb.clouddn.com/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7.png">
+<meta property="og:updated_time" content="2016-04-25T16:04:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="易易妹的博客">
-<meta name="twitter:description">
+<meta name="twitter:description" content="理解原型分享一下学习了一天的对象原型的结果，我们来用下面这个小例子来展开：
+function Person(sname,age){
+    this.sname = sname;
+    this.age = age;
+}
+
+var lilei = new Person(&amp;apos;lilei&amp;apos;,12);
+var hmm = new Person(&amp;apos;hanmeimei&amp;apos">
+<meta name="twitter:image" content="http://7xtcml.com2.z0.glb.clouddn.com/%E5%8E%9F%E5%9E%8B2.png">
   
     <link rel="alternative" href="/atom.xml" title="易易妹的博客" type="application/atom+xml">
   
@@ -196,43 +222,104 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-JS原型的理解" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/15/我的第一篇博文/" class="archive-article-date">
-  	<time datetime="2016-03-15T15:27:10.640Z" itemprop="datePublished">Mar 15</time>
+    <div class="article-meta">
+      <a href="/2016/04/26/JS原型的理解/" class="article-date">
+  	<time datetime="2016-04-25T16:10:16.950Z" itemprop="datePublished">2016-04-26</time>
 </a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    </div>
   
-  
-    </div></section>
-  
-
+  <div class="article-inner">
     
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="理解原型"><a href="#理解原型" class="headerlink" title="理解原型"></a>理解原型</h1><p>分享一下学习了一天的对象原型的结果，我们来用下面这个小例子来展开：</p>
+<pre><code>function Person(sname,age){
+    this.sname = sname;
+    this.age = age;
+}
+
+var lilei = new Person(&apos;lilei&apos;,12);
+var hmm = new Person(&apos;hanmeimei&apos;,11);
+console.log(Person.prototype);
+console.log(Person.__proto__);
+console.log(Person.constructor);
+
+console.log(lilei.__proto__);
+console.log(lilei.constructor);
+</code></pre><p>console的结果如下：</p>
+<p><img src="http://7xtcml.com2.z0.glb.clouddn.com/%E5%8E%9F%E5%9E%8B2.png" alt=""></p>
+<p>对此结果进行分析我画出了下图：</p>
+<p><img src="http://7xtcml.com2.z0.glb.clouddn.com/%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3.png" alt=""></p>
+<blockquote>
+<p>总结下：<br>JS中一切都是对象同时我们可以认为</p>
+</blockquote>
+<pre><code>//给Person函数对象添加一个sayName方法和country属性；
+Person.sayName = function(){
+    console.log(&apos;I am&apos;+this.sname);
+}
+Person.country = &apos;China&apos;;
+</code></pre><p>这个sayName的方法和country的属性是保存在那里的呢？</p>
+<p><img src="http://7xtcml.com2.z0.glb.clouddn.com/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7.png" alt=""></p>
+<p>函数果然是一个很特别的对象。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/26/第一次前端面试总结——太平洋网络科技有限公司/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/22/我为什么要换行做前端/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 </div>
       <footer id="footer">
@@ -258,8 +345,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
