@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/懒人/" style="font-size: 15px;">懒人</a> <a href="/tags/水文/" style="font-size: 10px;">水文</a> <a href="/tags/牛肉/" style="font-size: 10px;">牛肉</a> <a href="/tags/生活/" style="font-size: 20px;">生活</a> <a href="/tags/番茄/" style="font-size: 10px;">番茄</a> <a href="/tags/食谱/" style="font-size: 15px;">食谱</a> <a href="/tags/鸡/" style="font-size: 10px;">鸡</a> <a href="/tags/鸡汤/" style="font-size: 10px;">鸡汤</a>
+						<a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/懒人/" style="font-size: 15px;">懒人</a> <a href="/tags/水文/" style="font-size: 10px;">水文</a> <a href="/tags/牛肉/" style="font-size: 10px;">牛肉</a> <a href="/tags/生活/" style="font-size: 20px;">生活</a> <a href="/tags/番茄/" style="font-size: 10px;">番茄</a> <a href="/tags/食谱/" style="font-size: 15px;">食谱</a> <a href="/tags/鸡/" style="font-size: 10px;">鸡</a> <a href="/tags/鸡汤/" style="font-size: 10px;">鸡汤</a>
 					</div>
 				</section>
 				
@@ -170,11 +170,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="draft-5" class="article article-type-draft" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2017/01/22/5/" class="article-date">
-  	<time datetime="2017-01-22T07:08:32.000Z" itemprop="datePublished">2017-01-22</time>
+  	<time datetime="2017-01-22T02:00:00.000Z" itemprop="datePublished">2017-01-22</time>
 </a>
     </div>
   
@@ -183,23 +183,45 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/22/5/">认真学习 switch 语法</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Markdown-syntax-guide-and-writing-on-MWeb"><a href="#Markdown-syntax-guide-and-writing-on-MWeb" class="headerlink" title="Markdown syntax guide and writing on MWeb"></a>Markdown syntax guide and writing on MWeb</h1><h2 id="Philosophy"><a href="#Philosophy" class="headerlink" title="Philosophy"></a>Philosophy</h2><blockquote>
-<p>Markdown is intended to be as easy-to-read and easy-to-write as is feasible.<br>Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.<br>Markdown’s syntax is intended for one purpose: to be used as a format for <em>writing</em> for the web.</p>
+        <p>今天看书的时候看到一句</p>
+<blockquote>
+<p>switch在比较值时使用的是全等比较，不会发生类型装换</p>
 </blockquote>
+<p>于是写了自己写了个脑残的demo</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num  = <span class="number">15</span>;</div><div class="line"><span class="keyword">switch</span> (<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">case</span> num == <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> num == <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出string</span></div><div class="line"></div><div class="line"><span class="keyword">switch</span> (num)&#123;</div><div class="line">    <span class="keyword">case</span> num == <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> num == <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出default</span></div></pre></td></tr></table></figure>
+<p>怎么想了一会儿，怎么是这个结果呢？不对啊~人家就是为了避免写太多的=号才弄出这种逻辑的呀，改！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (num)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出number</span></div><div class="line"></div><div class="line"><span class="keyword">switch</span> (<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出default</span></div></pre></td></tr></table></figure>
+<p>结论：<br>switch后面的括号的内容要根据相应的情况改变：</p>
+<ul>
+<li>做相等判断的时候,要写要判断的变量,case后不用写变量；</li>
+<li>做不等判断的时候,括号后面要写true,case后要写变量。</li>
+</ul>
+
       
     </div>
     
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
 
       
-        <p class="article-more-link">
-          <a  href="/2017/01/22/5/#more">more >></a>
-        </p>
+
       
       <div class="clearfix"></div>
     </div>
