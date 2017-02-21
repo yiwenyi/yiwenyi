@@ -69,7 +69,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/懒人/" style="font-size: 15px;">懒人</a> <a href="/tags/水文/" style="font-size: 10px;">水文</a> <a href="/tags/牛肉/" style="font-size: 10px;">牛肉</a> <a href="/tags/生活/" style="font-size: 20px;">生活</a> <a href="/tags/番茄/" style="font-size: 10px;">番茄</a> <a href="/tags/食谱/" style="font-size: 15px;">食谱</a> <a href="/tags/鸡/" style="font-size: 10px;">鸡</a> <a href="/tags/鸡汤/" style="font-size: 10px;">鸡汤</a>
+						<a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/懒人/" style="font-size: 15px;">懒人</a> <a href="/tags/教育/" style="font-size: 10px;">教育</a> <a href="/tags/水文/" style="font-size: 10px;">水文</a> <a href="/tags/父母/" style="font-size: 10px;">父母</a> <a href="/tags/牛肉/" style="font-size: 10px;">牛肉</a> <a href="/tags/生活/" style="font-size: 20px;">生活</a> <a href="/tags/番茄/" style="font-size: 10px;">番茄</a> <a href="/tags/读后感/" style="font-size: 10px;">读后感</a> <a href="/tags/食谱/" style="font-size: 15px;">食谱</a> <a href="/tags/鸡/" style="font-size: 10px;">鸡</a> <a href="/tags/鸡汤/" style="font-size: 10px;">鸡汤</a>
 					</div>
 				</section>
 				
@@ -170,11 +170,11 @@
 
       <div class="body-wrap">
   
-    <article id="draft-5" class="article article-type-draft" itemscope itemprop="blogPost">
+    <article id="draft-6" class="article article-type-draft" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/22/5/" class="article-date">
-  	<time datetime="2017-01-22T02:00:00.000Z" itemprop="datePublished">2017-01-22</time>
+      <a href="/2017/02/21/6/" class="article-date">
+  	<time datetime="2017-02-21T02:00:00.000Z" itemprop="datePublished">2017-02-21</time>
 </a>
     </div>
   
@@ -187,7 +187,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/22/5/">认真学习 switch 语法</a>
+      <a class="article-title" href="/2017/02/21/6/">《无声告白》</a>
     </h1>
   
 
@@ -196,19 +196,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天看书的时候看到一句</p>
-<blockquote>
-<p>switch在比较值时使用的是全等比较，不会发生类型装换</p>
+        <blockquote>
+<p>我们终此一生，就是要摆脱他人的期待，找回真正的自己</p>
 </blockquote>
-<p>于是写了自己写了个脑残的demo</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num  = <span class="number">15</span>;</div><div class="line"><span class="keyword">switch</span> (<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">case</span> num == <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> num == <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出string</span></div><div class="line"></div><div class="line"><span class="keyword">switch</span> (num)&#123;</div><div class="line">    <span class="keyword">case</span> num == <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> num == <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出default</span></div></pre></td></tr></table></figure>
-<p>怎么想了一会儿，怎么是这个结果呢？不对啊~人家就是为了避免写太多的=号才弄出这种逻辑的呀，改！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (num)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出number</span></div><div class="line"></div><div class="line"><span class="keyword">switch</span> (<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'15'</span>:alert(<span class="string">'string'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="number">15</span>:alert(<span class="string">'number'</span>);<span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:alert(<span class="string">'default'</span>)</div><div class="line">&#125;<span class="comment">//输出default</span></div></pre></td></tr></table></figure>
-<p>结论：<br>switch后面的括号的内容要根据相应的情况改变：</p>
-<ul>
-<li>做相等判断的时候,要写要判断的变量,case后不用写变量；</li>
-<li>做不等判断的时候,括号后面要写true,case后要写变量。</li>
-</ul>
+<p>莉迪亚是一个好女孩。</p>
+<p>她的母亲年轻时因为怀孕而放弃了做医生的梦想，她把这个梦想放到了女儿的身上，而完全没看到女儿的真正的诉求。</p>
+<p>她的父亲融不入社交圈子，希望她能交多点朋友，经常主动要求帮她助攻，可是却是让她更加难堪。</p>
+<p>父母的期望压得她喘不过气来。</p>
+<p>压倒她最后稻草是她哥哥要离开家离开她去哈佛读大学了，没有人再会和她一起分担着父母给的太过重的爱，没人懂她了，所以她做出了极端的选择。</p>
+<p>这本书的名字叫无声告白，表达的应该就是莉迪亚对父母爱的告白，自己默默地以承受父母的期待来告白父母，我爱你们。然而她的父母在她死后，似乎才明白过来。</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tKfTcgy1fcxyqz7qznj31ct1z4nh6.jpg" alt=""></p>
 
       
     </div>
@@ -217,7 +214,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小说/">小说</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教育/">教育</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/父母/">父母</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读后感/">读后感</a></li></ul>
 	</div>
 
       
@@ -239,10 +236,10 @@
 
 
   
-    <article id="draft-6" class="article article-type-draft" itemscope itemprop="blogPost">
+    <article id="draft-5" class="article article-type-draft" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/22/6/" class="article-date">
+      <a href="/2017/01/22/5/" class="article-date">
   	<time datetime="2017-01-22T02:00:00.000Z" itemprop="datePublished">2017-01-22</time>
 </a>
     </div>
@@ -256,7 +253,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/22/6/">认真学习 switch 语法</a>
+      <a class="article-title" href="/2017/01/22/5/">认真学习 switch 语法</a>
     </h1>
   
 
